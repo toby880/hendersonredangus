@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henderson Red Angus — Seymour, Texas</title>
+<meta name="description" content="Henderson Red Angus — Registered Red Angus cattle, performance tested bulls, and quarter horses. Seymour, Texas.">
+<style>
+  :root {
+    --red: #8B1A1A;
+    --dark: #1a1a1a;
+    --gold: #c8a96e;
+    --bg: #f5f0eb;
+    --white: #ffffff;
+    --gray: #666;
+    --border: #ddd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg); color: var(--dark); }
+
+  /* NAV */
+  nav { background: var(--dark); padding: 0 32px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; align-items: center; gap: 14px; padding: 10px 0; text-decoration: none; }
+  .brand-mark { width: 52px; height: 52px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .brand-mark svg { width: 36px; height: 36px; }
+  .brand-text { line-height: 1.2; }
+  .brand-text .script { font-family: Georgia, serif; font-style: italic; font-size: 22px; color: white; font-weight: 400; }
+  .brand-text .block { font-size: 13px; color: var(--gold); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-style: normal; font-family: Arial, sans-serif; }
+  .nav-links { display: flex; gap: 0; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; padding: 20px 16px; font-size: 14px; font-family: Arial, sans-serif; letter-spacing: 0.5px; transition: color 0.15s; border-bottom: 3px solid transparent; }
+  .nav-links a:hover { color: white; border-bottom-color: var(--gold); }
+  .nav-links a.beef { background: var(--red); color: white; padding: 20px 20px; }
+  .nav-links a.beef:hover { background: #a01e1e; border-bottom-color: transparent; }
+  .nav-mobile { display: none; cursor: pointer; color: white; font-size: 24px; padding: 10px; }
+
+  /* HERO */
+  .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('hero.jpg') center/cover no-repeat; min-height: 500px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 24px; background-color: #2a1a0a; }
+  .hero-content { max-width: 700px; }
+  .hero-brand { font-family: Georgia, serif; font-style: italic; font-size: 56px; color: white; line-height: 1; margin-bottom: 6px; }
+  .hero-sub { font-family: Arial, sans-serif; font-size: 13px; color: var(--gold); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 24px; }
+  .hero-tagline { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 32px; line-height: 1.6; }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--red); color: white; padding: 14px 28px; text-decoration: none; font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid var(--red); }
+  .btn-primary:hover { background: #a01e1e; border-color: #a01e1e; }
+  .btn-outline { background: transparent; color: white; padding: 14px 28px; text-decoration: none; font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid white; }
+  .btn-outline:hover { background: white; color: var(--dark); }
+
+  /* SECTIONS */
+  section { padding: 60px 24px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-label { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+  .section-title { font-size: 36px; font-weight: 400; color: var(--dark); margin-bottom: 12px; }
+  .section-divider { width: 60px; height: 2px; background: var(--gold); margin: 0 auto; }
+
+  /* ABOUT */
+  .about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-text p { font-size: 16px; line-height: 1.9; color: #444; margin-bottom: 16px; }
+  .about-image { background: #d4c9b8; min-height: 350px; display: flex; align-items: center; justify-content: center; }
+  .about-image img { width: 100%; height: 350px; object-fit: cover; }
+
+  /* PROGRAM */
+  .program { background: var(--bg); }
+  .program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .program-card { background: var(--white); padding: 32px 24px; text-align: center; border-top: 3px solid var(--red); }
+  .program-card .icon { font-size: 36px; margin-bottom: 16px; }
+  .program-card h3 { font-size: 20px; font-weight: 400; margin-bottom: 12px; }
+  .program-card p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+  /* BULLS PREVIEW */
+  .bulls-preview { background: var(--dark); }
+  .bulls-preview .section-title { color: white; }
+  .bulls-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+  .bull-thumb { background: #2a2a2a; overflow: hidden; }
+  .bull-thumb img { width: 100%; height: 200px; object-fit: cover; display: block; }
+  .bull-thumb .bull-info { padding: 14px; }
+  .bull-thumb .bull-tag { font-family: Arial, sans-serif; font-size: 11px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .bull-thumb .bull-name { color: white; font-size: 14px; margin-top: 4px; }
+  .bulls-cta { text-align: center; }
+
+  /* SIRES */
+  .sires { background: var(--white); }
+  .sires-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .sire-card { display: grid; grid-template-columns: 180px 1fr; gap: 20px; align-items: start; padding: 24px; border: 1px solid var(--border); }
+  .sire-card img { width: 180px; height: 160px; object-fit: cover; }
+  .sire-card .sire-placeholder { width: 180px; height: 160px; background: #e8e0d6; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+  .sire-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .sire-reg { font-family: Arial, sans-serif; font-size: 11px; color: var(--gray); letter-spacing: 1px; margin-bottom: 12px; }
+  .epd-mini { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .epd-mini-item { text-align: center; background: var(--bg); padding: 6px 4px; }
+  .epd-mini-item .el { font-size: 9px; color: var(--gray); text-transform: uppercase; font-family: Arial, sans-serif; }
+  .epd-mini-item .ev { font-size: 14px; font-weight: 700; }
+
+  /* HORSES */
+  .horses { background: var(--bg); }
+  .horses-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .horse-card { background: var(--white); overflow: hidden; border: 1px solid var(--border); }
+  .horse-card img { width: 100%; height: 260px; object-fit: cover; }
+  .horse-card .horse-placeholder { width: 100%; height: 260px; background: #e8e0d6; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+  .horse-card .horse-info { padding: 20px; }
+  .horse-card h3 { font-size: 20px; margin-bottom: 6px; }
+  .horse-card .horse-details { font-family: Arial, sans-serif; font-size: 13px; color: var(--gray); margin-bottom: 10px; }
+  .horse-card p { font-size: 14px; line-height: 1.6; color: #444; }
+  .horse-price { font-size: 18px; font-weight: 700; color: var(--red); margin-top: 10px; }
+
+  /* CONTACT */
+  .contact { background: var(--dark); color: white; }
+  .contact .section-title { color: white; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .contact-info p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 2; }
+  .contact-info a { color: var(--gold); text-decoration: none; }
+  .contact-info .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .contact-info .contact-item .ci-icon { font-size: 20px; width: 32px; flex-shrink: 0; }
+  .contact-info .contact-item .ci-text { font-size: 15px; color: rgba(255,255,255,0.8); }
+  .contact-info .contact-item .ci-text a { color: var(--gold); }
+  .contact-form input, .contact-form textarea { width: 100%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 12px; font-size: 14px; font-family: Georgia, serif; margin-bottom: 12px; }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.4); }
+  .contact-form textarea { height: 120px; resize: vertical; }
+  .contact-form .btn-primary { border: none; cursor: pointer; width: 100%; font-size: 14px; }
+
+  /* BEEF CTA */
+  .beef-cta { background: var(--red); padding: 48px 24px; text-align: center; }
+  .beef-cta h2 { font-size: 32px; color: white; font-weight: 400; margin-bottom: 12px; }
+  .beef-cta p { color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 28px; }
+  .beef-cta a { background: white; color: var(--red); padding: 14px 32px; text-decoration: none; font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* FOOTER */
+  footer { background: #111; color: rgba(255,255,255,0.5); padding: 24px; text-align: center; font-family: Arial, sans-serif; font-size: 13px; }
+
+  @media(max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-mobile { display: block; }
+    .about-grid, .program-grid, .bulls-grid, .sires-grid, .horses-grid, .contact-grid { grid-template-columns: 1fr; }
+    .sire-card { grid-template-columns: 1fr; }
+    .sire-card img, .sire-card .sire-placeholder { width: 100%; }
+    .hero-brand { font-size: 38px; }
+    .section-title { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="brand-mark">
+      <svg viewBox="0 0 240 240" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="120" cy="120" r="110" fill="white" stroke="#8B1A1A" stroke-width="8"/>
+        <line x1="120" y1="55" x2="120" y2="185" stroke="#8B1A1A" stroke-width="20" stroke-linecap="round"/>
+        <line x1="62" y1="55" x2="178" y2="55" stroke="#8B1A1A" stroke-width="20" stroke-linecap="round"/>
+        <line x1="74" y1="115" x2="120" y2="115" stroke="#8B1A1A" stroke-width="20" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <div class="script" style="font-size:20px">Henderson Red Angus</div>
+      <div class="block" style="font-size:10px;letter-spacing:2px">Seymour, Texas</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#bulls">Sales</a>
+    <a href="#sires">Sires</a>
+    <a href="#horses">Horses</a>
+    <a href="#contact">Contact Us</a>
+    <a href="https://hendersonbeef.com" target="_blank" class="beef">Shop Beef</a>
+  </div>
+  <div class="nav-mobile">☰</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-brand">Henderson</div>
+    <div class="hero-sub">Seymour, Texas</div>
+    <p class="hero-tagline">Registered Red Angus cattle bred for performance, maternal excellence, and profitability in any environment.</p>
+    <div class="hero-btns">
+      <a href="#bulls" class="btn-primary">View Bulls for Sale</a>
+      <a href="#contact" class="btn-outline">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title" style="text-align:left;margin-bottom:16px">Henderson Red Angus</h2>
+        <div class="section-divider" style="margin:0 0 24px"></div>
+        <p>Located in Seymour, Texas, Henderson Red Angus has been breeding registered Red Angus cattle with an emphasis on performance, calving ease, and maternal ability.</p>
+        <p>Our program focuses on producing cattle that work in the real world — bulls and females that are easy fleshing, structurally sound, and backed by RAAA performance data.</p>
+        <p>We sell registered bulls and females privately, and offer embryo transfer services from our donor cows to commercial and seedstock producers.</p>
+      </div>
+      <div class="about-image">
+        <img src="ranch_photo.jpg" alt="Henderson Red Angus" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:350px;object-fit:cover">
+        <div style="display:none;width:100%;height:350px;background:#d4c9b8;align-items:center;justify-content:center;font-size:48px">🐄</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Our Program</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="program-grid">
+      <div class="program-card">
+        <div class="icon">🐂</div>
+        <h3>Performance Bulls</h3>
+        <p>Registered Red Angus bulls performance tested and backed by RAAA and Leachman EPDs. BSE tested and ready to work.</p>
+      </div>
+      <div class="program-card">
+        <div class="icon">🐄</div>
+        <h3>Registered Females</h3>
+        <p>Bred heifers and cows from our donor cow program. Deep pedigrees, high performance, excellent maternal traits.</p>
+      </div>
+      <div class="program-card">
+        <div class="icon">🧬</div>
+        <h3>Embryo Transfer</h3>
+        <p>ET and IVF services available from our proven donor cows. Inquire about availability and pricing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BULLS FOR SALE -->
+<section class="bulls-preview" id="bulls">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label" style="color:var(--gold)">Private Treaty</div>
+      <h2 class="section-title">2024 Bulls for Sale</h2>
+      <div class="section-divider"></div>
+      <p style="color:rgba(255,255,255,0.6);margin-top:16px;font-size:15px">Six performance-tested 2024 Red Angus bulls · $5,000 each · BSE testing completed prior to delivery</p>
+    </div>
+    <div class="bulls-grid">
+      <div class="bull-thumb">
+        <img src="M6502.jpg" alt="M6502" onerror="this.style.background='#333';this.style.height='200px'">
+        <div class="bull-info">
+          <div class="bull-tag">Lot 2 · REG# 4949420</div>
+          <div class="bull-name">H2R MERLIN G959 M6502</div>
+        </div>
+      </div>
+      <div class="bull-thumb">
+        <img src="M6504.jpg" alt="M6504" onerror="this.style.background='#333';this.style.height='200px'">
+        <div class="bull-info">
+          <div class="bull-tag">Lot 4 · REG# 4949752</div>
+          <div class="bull-name">H2R COMMANDER J5444 M6504</div>
+        </div>
+      </div>
+      <div class="bull-thumb">
+        <img src="M6505.jpg" alt="M6505" onerror="this.style.background='#333';this.style.height='200px'">
+        <div class="bull-info">
+          <div class="bull-tag">Lot 5 · REG# 4949382</div>
+          <div class="bull-name">H2R MS COMMANDER M6505</div>
+        </div>
+      </div>
+    </div>
+    <div class="bulls-cta">
+      <a href="bulls.html" class="btn-primary">View Full Bull Catalog →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SIRES -->
+<section class="sires" id="sires">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Genetics</div>
+      <h2 class="section-title">Herd Sires</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="sires-grid">
+      <div class="sire-card">
+        <div class="sire-placeholder">🐂</div>
+        <div>
+          <div class="sire-name">H2R ORACLE J7444</div>
+          <div class="sire-reg">REG# 4539827 · Born 8/24/2021</div>
+          <div class="epd-mini">
+            <div class="epd-mini-item"><div class="el">CED</div><div class="ev">15.4</div></div>
+            <div class="epd-mini-item"><div class="el">BW</div><div class="ev">-2.7</div></div>
+            <div class="epd-mini-item"><div class="el">WW</div><div class="ev">65.8</div></div>
+            <div class="epd-mini-item"><div class="el">YW</div><div class="ev">103.3</div></div>
+            <div class="epd-mini-item"><div class="el">Milk</div><div class="ev">23.3</div></div>
+            <div class="epd-mini-item"><div class="el">Marb</div><div class="ev">1.07</div></div>
+            
+            
+          </div>
+        </div>
+      </div>
+      <div class="sire-card">
+        <div class="sire-placeholder">🐂</div>
+        <div>
+          <div class="sire-name">H2R HOMETOWN J7445 L5693</div>
+          <div class="sire-reg">REG# 4797044 · Born 6/10/2023</div>
+          <div class="epd-mini">
+            <div class="epd-mini-item"><div class="el">CED</div><div class="ev">18.0</div></div>
+            <div class="epd-mini-item"><div class="el">BW</div><div class="ev">-5.2</div></div>
+            <div class="epd-mini-item"><div class="el">WW</div><div class="ev">57.0</div></div>
+            <div class="epd-mini-item"><div class="el">YW</div><div class="ev">97.0</div></div>
+            <div class="epd-mini-item"><div class="el">Milk</div><div class="ev">28.0</div></div>
+            <div class="epd-mini-item"><div class="el">Marb</div><div class="ev">1.06</div></div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORSES -->
+<section class="horses" id="horses">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">For Sale</div>
+      <h2 class="section-title">Horses</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="horses-grid">
+      <div class="horse-card">
+        <div class="horse-placeholder">🐴</div>
+        <div class="horse-info">
+          <h3>Horse 1</h3>
+          <div class="horse-details">Breed · Age · Color</div>
+          <p>Description coming soon. Contact us for details.</p>
+          <div class="horse-price">Contact for Price</div>
+        </div>
+      </div>
+      <div class="horse-card">
+        <div class="horse-placeholder">🐴</div>
+        <div class="horse-info">
+          <h3>Horse 2</h3>
+          <div class="horse-details">Breed · Age · Color</div>
+          <p>Description coming soon. Contact us for details.</p>
+          <div class="horse-price">Contact for Price</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP BEEF CTA -->
+<div class="beef-cta">
+  <h2>Henderson Beef</h2>
+  <p>Farm-direct Red Angus beef available for local pickup in Seymour, Texas. Currently restocking — check back in about a month. Contact us to get on the list.</p>
+  <a href="mailto:toby@hendersonredangus.com">Get on the Waitlist →</a>
+</div>
+
+<!-- CONTACT -->
+
+<!-- FAMILY -->
+<section style="background:var(--white);padding:60px 24px">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">The People Behind the Program</div>
+      <h2 class="section-title">Meet the Family</h2>
+      <div class="section-divider"></div>
+      <p style="color:var(--gray);margin-top:16px;font-size:15px;max-width:600px;margin-left:auto;margin-right:auto">Henderson Red Angus is a family operation — two generations working together with a shared passion for Red Angus cattle.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:800px;margin:0 auto">
+      <div style="text-align:center">
+        <img src="frank_karen.jpg" alt="Frank and Karen Henderson" style="width:100%;height:280px;object-fit:cover;object-position:center top;margin-bottom:16px">
+        <h3 style="font-size:20px;font-weight:400;margin-bottom:4px">Frank & Karen Henderson</h3>
+        <p style="font-family:Arial,sans-serif;font-size:12px;color:var(--red);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Founders</p>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7">Frank and Karen built Henderson Red Angus from the ground up, establishing the foundation of quality genetics and ranch values that guide the operation today.</p>
+      </div>
+      <div style="text-align:center">
+        <img src="toby_amy.jpg" alt="Toby and Amy Henderson" style="width:100%;height:280px;object-fit:cover;object-position:center top;margin-bottom:16px">
+        <h3 style="font-size:20px;font-weight:400;margin-bottom:4px">Toby & Amy Henderson</h3>
+        <p style="font-family:Arial,sans-serif;font-size:12px;color:var(--red);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Partners</p>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7">Toby and Amy joined the operation as partners, bringing fresh energy and a commitment to continuing the Henderson Red Angus legacy for the next generation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RA BROWN -->
+<section style="background:#f0ebe4;padding:60px 24px">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:900px;margin:0 auto">
+      <div>
+        <div class="section-label">Sales Partnership</div>
+        <h2 class="section-title" style="text-align:left;margin-bottom:16px">RA Brown Ranch</h2>
+        <div class="section-divider" style="margin:0 0 24px"></div>
+        <p style="font-size:16px;line-height:1.9;color:#444;margin-bottom:16px">Henderson Red Angus is proud to sell bulls through the <strong>RA Brown Ranch</strong> bull sale — one of the most respected Red Angus programs in the country.</p>
+        <p style="font-size:16px;line-height:1.9;color:#444;margin-bottom:24px">As a RA Brown cooperator, our cattle are bred to complement and perform alongside their genetics. Watch for Henderson Red Angus bulls in upcoming RA Brown Ranch sales.</p>
+        <a href="https://www.rabrownranch.com" target="_blank" class="btn-primary">Visit RA Brown Ranch →</a>
+      </div>
+      <div style="background:#d4c9b8;min-height:300px;display:flex;align-items:center;justify-content:center;font-size:64px">🐂</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label" style="color:var(--gold)">Get In Touch</div>
+      <h2 class="section-title">Contact Us</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-text">Seymour, Texas</div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📞</div>
+          <div class="ci-text"><a href="tel:8173604630">817-360-4630</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">✉️</div>
+          <div class="ci-text"><a href="mailto:toby@hendersonredangus.com">toby@hendersonredangus.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🌐</div>
+          <div class="ci-text"><a href="https://hendersonbeef.com">hendersonbeef.com</a></div>
+        </div>
+        <p style="margin-top:24px;color:rgba(255,255,255,0.5);font-size:14px;line-height:1.8">
+          We sell bulls and females by private treaty year round. 
+          Contact us for current availability, pricing, and to schedule a visit.
+        </p>
+      </div>
+      <div class="contact-form">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Email Address">
+        <input type="tel" placeholder="Phone Number">
+        <textarea placeholder="Message — What are you looking for?"></textarea>
+        <a href="mailto:toby@hendersonredangus.com" class="btn-primary" style="display:block;text-align:center;padding:14px">Send Message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Henderson Red Angus · Seymour, Texas · 817-360-4630
+</footer>
+
+</body>
+</html>

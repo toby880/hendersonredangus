@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H2R Ranch — 2024 Bull Sale | Henderson Red Angus</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f5f0eb; color: #1a1a1a; }
+
+  /* HEADER */
+  .header { background: #1a1a1a; color: white; padding: 40px 24px; text-align: center; }
+  .header .ranch-name { font-size: 42px; font-weight: 700; letter-spacing: 3px; margin-bottom: 6px; }
+  .header .tagline { font-size: 14px; letter-spacing: 4px; color: #c8a96e; text-transform: uppercase; margin-bottom: 20px; }
+  .header .sale-title { font-size: 28px; font-weight: 400; color: #c8a96e; border-top: 1px solid #444; border-bottom: 1px solid #444; padding: 12px 0; margin-bottom: 16px; }
+  .header .contact { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 2; }
+  .header .contact a { color: #c8a96e; text-decoration: none; }
+
+  /* INTRO */
+  .intro { max-width: 800px; margin: 0 auto; padding: 32px 24px; text-align: center; }
+  .intro p { font-size: 16px; line-height: 1.8; color: #444; }
+
+  /* BULL CARDS */
+  .bulls { max-width: 900px; margin: 0 auto; padding: 0 24px 40px; }
+  .bull-card { background: white; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 32px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); page-break-inside: avoid; }
+  .bull-header { background: #1a1a1a; color: white; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .bull-header .lot { font-size: 12px; letter-spacing: 2px; color: #c8a96e; text-transform: uppercase; }
+  .bull-header .tag { font-size: 28px; font-weight: 700; }
+  .bull-header .price { font-size: 24px; color: #c8a96e; font-weight: 700; }
+  .bull-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .bull-photo { background: #f0ebe4; display: flex; align-items: center; justify-content: center; min-height: 220px; border-right: 1px solid #eee; }
+  .bull-photo .placeholder { text-align: center; color: #999; }
+  .bull-photo .placeholder .icon { font-size: 48px; margin-bottom: 8px; }
+  .bull-photo .placeholder p { font-size: 12px; }
+  .bull-info { padding: 20px 24px; }
+  .bull-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .bull-reg { font-size: 12px; color: #888; margin-bottom: 12px; letter-spacing: 1px; }
+  .bull-details { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; }
+  .detail { font-size: 13px; }
+  .detail .label { color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .detail .value { font-weight: 700; }
+  .epd-section { border-top: 1px solid #eee; padding-top: 14px; }
+  .epd-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 8px; }
+  .epd-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 10px; }
+  .epd-item { text-align: center; background: #f8f6f3; padding: 6px 4px; border-radius: 3px; }
+  .epd-item .epd-label { font-size: 10px; color: #888; text-transform: uppercase; }
+  .epd-item .epd-value { font-size: 15px; font-weight: 700; color: #1a1a1a; }
+  .lc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .lc-item { text-align: center; background: #1a1a1a; padding: 6px 4px; border-radius: 3px; }
+  .lc-item .lc-label { font-size: 10px; color: #c8a96e; text-transform: uppercase; }
+  .lc-item .lc-value { font-size: 15px; font-weight: 700; color: white; }
+  .sire-dam { border-top: 1px solid #eee; padding-top: 10px; margin-top: 10px; font-size: 12px; color: #666; }
+
+  /* FOOTER */
+  footer { background: #1a1a1a; color: white; padding: 32px 24px; text-align: center; }
+  footer .terms { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 16px; }
+  footer .contact { font-size: 16px; color: #c8a96e; }
+
+  @media print {
+    body { background: white; }
+    .bull-card { box-shadow: none; border: 1px solid #ccc; }
+    .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .bull-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media(max-width: 600px) {
+    .bull-body { grid-template-columns: 1fr; }
+    .bull-photo { border-right: none; border-bottom: 1px solid #eee; min-height: 180px; }
+    .epd-grid { grid-template-columns: repeat(4, 1fr); }
+    .header .ranch-name { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="margin-bottom:16px">
+    <svg viewBox="0 0 200 200" width="70" height="70" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" fill="transparent" stroke="white" stroke-width="4"/>
+      <line x1="100" y1="35" x2="100" y2="165" stroke="white" stroke-width="16" stroke-linecap="round"/>
+      <line x1="42" y1="35" x2="158" y2="35" stroke="white" stroke-width="16" stroke-linecap="round"/>
+      <line x1="42" y1="95" x2="100" y2="95" stroke="white" stroke-width="16" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="ranch-name">HENDERSON RED ANGUS</div>
+  <div class="tagline">Seymour, Texas</div>
+  <div class="sale-title">2024 Bull Sale — Private Treaty</div>
+  <div class="contact">
+    📞 <a href="tel:8173604630">817-360-4630</a> &nbsp;|&nbsp;
+    ✉️ <a href="mailto:toby@hendersonredangus.com">toby@hendersonredangus.com</a> &nbsp;|&nbsp;
+    🌐 hendersonredangus.com
+  </div>
+</div>
+
+<div class="intro">
+  <p>Six performance-tested Red Angus bulls available for private treaty at $5,000 each. All bulls are registered with RAAA, BSE tested, and ready to work. These bulls combine calving ease, growth, and maternal traits to add value to any commercial or seedstock operation.</p>
+</div>
+
+<div class="bulls">
+
+  <!-- LOT 1: M6501 -->
+  <div class="bull-card">
+    <div class="bull-header">
+      <div>
+        <div class="lot">Lot 1</div>
+        <div class="tag">H2R-M6501</div>
+      </div>
+      <div class="price">$5,000</div>
+    </div>
+    <div class="bull-body">
+      <div class="bull-photo">
+        <div class="placeholder">
+          <div class="icon">🐂</div>
+          <p>Photo Available<br>Upon Request</p>
+        </div>
+      </div>
+      <div class="bull-info">
+        <div class="bull-name">H2R COMMANDER J5444 M6501</div>
+        <div class="bull-reg">REG# 4949374 &nbsp;|&nbsp; Born: 3/21/2024</div>
+        <div class="bull-details">
+          <div class="detail"><div class="label">Sire</div><div class="value">H2R COMMANDER J5444</div></div>
+          <div class="detail"><div class="label">Dam</div><div class="value">H2R-D620</div></div>
+          <div class="detail"><div class="label">Adj. Wean Wt</div><div class="value">573 lbs</div></div>
+          <div class="detail"><div class="label">205 Ratio</div><div class="value">109</div></div>
+        </div>
+        <div class="epd-section">
+          <div class="epd-title">RAAA EPDs</div>
+          <div class="epd-grid">
+            <div class="epd-item"><div class="epd-label">CED</div><div class="epd-value">7.6</div></div>
+            <div class="epd-item"><div class="epd-label">BW</div><div class="epd-value">-0.4</div></div>
+            <div class="epd-item"><div class="epd-label">WW</div><div class="epd-value">79.6</div></div>
+            <div class="epd-item"><div class="epd-label">YW</div><div class="epd-value">128.4</div></div>
+            <div class="epd-item"><div class="epd-label">Milk</div><div class="epd-value">29.0</div></div>
+            <div class="epd-item"><div class="epd-label">Marb</div><div class="epd-value">1.27</div></div>
+            <div class="epd-item"><div class="epd-label">REA</div><div class="epd-value">-0.01</div></div>
+            <div class="epd-item"><div class="epd-label">FAT</div><div class="epd-value">0.03</div></div>
+          </div>          </div>
+                  <div class="epd-title" style="margin-top:8px">Leachman Indexes</div>
+          <div class="lc-grid">
+            <div class="lc-item"><div class="lc-label">LC $Profit</div><div class="lc-value">$16,664</div></div>
+            <div class="lc-item"><div class="lc-label">LC $Ranch</div><div class="lc-value">19.54</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOT 2: M6502 -->
+  <div class="bull-card">
+    <div class="bull-header">
+      <div>
+        <div class="lot">Lot 2</div>
+        <div class="tag">H2R-M6502</div>
+      </div>
+      <div class="price">$5,000</div>
+    </div>
+    <div class="bull-body">
+      <div class="bull-photo" style="background:#000">
+        <img src="M6502.jpg" alt="H2R MERLIN G959 M6502" style="width:100%;height:100%;object-fit:cover;min-height:220px">
+      </div>
+        <div class="bull-reg">REG# 4949420 &nbsp;|&nbsp; Born: 3/25/2024</div>
+        <div class="bull-details">
+          <div class="detail"><div class="label">Sire</div><div class="value">H2R MERLIN G959</div></div>
+          <div class="detail"><div class="label">Dam</div><div class="value">H2R-C504</div></div>
+          <div class="detail"><div class="label">Adj. Wean Wt</div><div class="value">568 lbs</div></div>
+          <div class="detail"><div class="label">205 Ratio</div><div class="value">101</div></div>
+        </div>
+        <div class="epd-section">
+          <div class="epd-title">RAAA EPDs</div>
+          <div class="epd-grid">
+            <div class="epd-item"><div class="epd-label">CED</div><div class="epd-value">9.7</div></div>
+            <div class="epd-item"><div class="epd-label">BW</div><div class="epd-value">-3.1</div></div>
+            <div class="epd-item"><div class="epd-label">WW</div><div class="epd-value">67.1</div></div>
+            <div class="epd-item"><div class="epd-label">YW</div><div class="epd-value">116.0</div></div>
+            <div class="epd-item"><div class="epd-label">Milk</div><div class="epd-value">23.9</div></div>
+            <div class="epd-item"><div class="epd-label">Marb</div><div class="epd-value">0.44</div></div>
+            <div class="epd-item"><div class="epd-label">REA</div><div class="epd-value">0.17</div></div>
+            <div class="epd-item"><div class="epd-label">FAT</div><div class="epd-value">0.01</div></div>
+          </div>          </div>
+                  <div class="epd-title" style="margin-top:8px">Leachman Indexes</div>
+          <div class="lc-grid">
+            <div class="lc-item"><div class="lc-label">LC $Profit</div><div class="lc-value">$8,984</div></div>
+            <div class="lc-item"><div class="lc-label">LC $Ranch</div><div class="lc-value">62.78</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOT 3: M6503 -->
+  <div class="bull-card">
+    <div class="bull-header">
+      <div>
+        <div class="lot">Lot 3</div>
+        <div class="tag">H2R-M6503</div>
+      </div>
+      <div class="price">$5,000</div>
+    </div>
+    <div class="bull-body">
+      <div class="bull-photo" style="background:#000">
+        <img src="M6503.jpg" alt="H2R COMMANDER J5444 M6503" style="width:100%;height:100%;object-fit:cover;min-height:220px">
+      </div>
+      <div class="bull-info">
+        <div class="bull-name">H2R COMMANDER J5444 M6503</div>
+        <div class="bull-reg">REG# 4949434 &nbsp;|&nbsp; Born: 4/6/2024</div>
+        <div class="bull-details">
+          <div class="detail"><div class="label">Sire</div><div class="value">H2R COMMANDER J5444</div></div>
+          <div class="detail"><div class="label">Dam</div><div class="value">H2R-D633</div></div>
+          <div class="detail"><div class="label">Adj. Wean Wt</div><div class="value">375 lbs</div></div>
+          <div class="detail"><div class="label">205 Ratio</div><div class="value">79</div></div>
+        </div>
+        <div class="epd-section">
+          <div class="epd-title">RAAA EPDs</div>
+          <div class="epd-grid">
+            <div class="epd-item"><div class="epd-label">CED</div><div class="epd-value">10.3</div></div>
+            <div class="epd-item"><div class="epd-label">BW</div><div class="epd-value">-3.3</div></div>
+            <div class="epd-item"><div class="epd-label">WW</div><div class="epd-value">74.0</div></div>
+            <div class="epd-item"><div class="epd-label">YW</div><div class="epd-value">124.3</div></div>
+            <div class="epd-item"><div class="epd-label">Milk</div><div class="epd-value">22.2</div></div>
+            <div class="epd-item"><div class="epd-label">Marb</div><div class="epd-value">0.96</div></div>
+            <div class="epd-item"><div class="epd-label">REA</div><div class="epd-value">-0.01</div></div>
+            <div class="epd-item"><div class="epd-label">FAT</div><div class="epd-value">0.04</div></div>
+          </div>          </div>
+                  <div class="epd-title" style="margin-top:8px">Leachman Indexes</div>
+          <div class="lc-grid">
+            <div class="lc-item"><div class="lc-label">LC $Profit</div><div class="lc-value">$19,863</div></div>
+            <div class="lc-item"><div class="lc-label">LC $Ranch</div><div class="lc-value">74.28</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOT 4: M6504 -->
+  <div class="bull-card">
+    <div class="bull-header">
+      <div>
+        <div class="lot">Lot 4</div>
+        <div class="tag">H2R-M6504</div>
+      </div>
+      <div class="price">$5,000</div>
+    </div>
+    <div class="bull-body">
+      <div class="bull-photo" style="background:#000">
+        <img src="M6504.jpg" alt="H2R COMMANDER J5444 M6504" style="width:100%;height:100%;object-fit:cover;min-height:220px">
+      </div>
+      <div class="bull-info">
+        <div class="bull-name">H2R COMMANDER J5444 M6504</div>
+        <div class="bull-reg">REG# 4949752 &nbsp;|&nbsp; Born: 4/6/2024</div>
+        <div class="bull-details">
+          <div class="detail"><div class="label">Sire</div><div class="value">H2R COMMANDER J5444</div></div>
+          <div class="detail"><div class="label">Dam</div><div class="value">H2R-G907</div></div>
+          <div class="detail"><div class="label">Adj. Wean Wt</div><div class="value">531 lbs</div></div>
+          <div class="detail"><div class="label">205 Ratio</div><div class="value">111</div></div>
+        </div>
+        <div class="epd-section">
+          <div class="epd-title">RAAA EPDs</div>
+          <div class="epd-grid">
+            <div class="epd-item"><div class="epd-label">CED</div><div class="epd-value">9.9</div></div>
+            <div class="epd-item"><div class="epd-label">BW</div><div class="epd-value">-1.9</div></div>
+            <div class="epd-item"><div class="epd-label">WW</div><div class="epd-value">75.8</div></div>
+            <div class="epd-item"><div class="epd-label">YW</div><div class="epd-value">127.9</div></div>
+            <div class="epd-item"><div class="epd-label">Milk</div><div class="epd-value">29.7</div></div>
+            <div class="epd-item"><div class="epd-label">Marb</div><div class="epd-value">0.83</div></div>
+            <div class="epd-item"><div class="epd-label">REA</div><div class="epd-value">0.39</div></div>
+            <div class="epd-item"><div class="epd-label">FAT</div><div class="epd-value">-0.01</div></div>
+          </div>          </div>
+                  <div class="epd-title" style="margin-top:8px">Leachman Indexes</div>
+          <div class="lc-grid">
+            <div class="lc-item"><div class="lc-label">LC $Profit</div><div class="lc-value">$18,957</div></div>
+            <div class="lc-item"><div class="lc-label">LC $Ranch</div><div class="lc-value">57.93</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOT 5: M6505 -->
+  <div class="bull-card">
+    <div class="bull-header">
+      <div>
+        <div class="lot">Lot 5</div>
+        <div class="tag">H2R-M6505</div>
+      </div>
+      <div class="price">$5,000</div>
+    </div>
+    <div class="bull-body">
+      <div class="bull-photo" style="background:#000">
+        <img src="M6505.jpg" alt="H2R MS COMMANDER M6505" style="width:100%;height:100%;object-fit:cover;min-height:220px">
+      </div>
+      <div class="bull-info">
+        <div class="bull-name">H2R MS COMMANDER M6505</div>
+        <div class="bull-reg">REG# 4949382 &nbsp;|&nbsp; Born: 4/13/2024</div>
+        <div class="bull-details">
+          <div class="detail"><div class="label">Sire</div><div class="value">H2R COMMANDER J5444</div></div>
+          <div class="detail"><div class="label">Dam</div><div class="value">H2R-E753</div></div>
+          <div class="detail"><div class="label">Adj. Wean Wt</div><div class="value">541 lbs</div></div>
+          <div class="detail"><div class="label">205 Ratio</div><div class="value">114</div></div>
+        </div>
+        <div class="epd-section">
+          <div class="epd-title">RAAA EPDs</div>
+          <div class="epd-grid">
+            <div class="epd-item"><div class="epd-label">CED</div><div class="epd-value">11.8</div></div>
+            <div class="epd-item"><div class="epd-label">BW</div><div class="epd-value">-3.0</div></div>
+            <div class="epd-item"><div class="epd-label">WW</div><div class="epd-value">75.8</div></div>
+            <div class="epd-item"><div class="epd-label">YW</div><div class="epd-value">115.4</div></div>
+            <div class="epd-item"><div class="epd-label">Milk</div><div class="epd-value">30.7</div></div>
+            <div class="epd-item"><div class="epd-label">Marb</div><div class="epd-value">0.81</div></div>
+            <div class="epd-item"><div class="epd-label">REA</div><div class="epd-value">0.00</div></div>
+            <div class="epd-item"><div class="epd-label">FAT</div><div class="epd-value">0.02</div></div>
+          </div>          </div>
+                  <div class="epd-title" style="margin-top:8px">Leachman Indexes</div>
+          <div class="lc-grid">
+            <div class="lc-item"><div class="lc-label">LC $Profit</div><div class="lc-value">$19,486</div></div>
+            <div class="lc-item"><div class="lc-label">LC $Ranch</div><div class="lc-value">111.19</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOT 6: M6506 -->
+  <div class="bull-card">
+    <div class="bull-header">
+      <div>
+        <div class="lot">Lot 6</div>
+        <div class="tag">H2R-M6506</div>
+      </div>
+      <div class="price">$5,000</div>
+    </div>
+    <div class="bull-body">
+      <div class="bull-photo" style="background:#000">
+        <img src="M6506.jpg" alt="H2R COMMANDER M6506" style="width:100%;height:100%;object-fit:cover;min-height:220px">
+      </div>
+      <div class="bull-info">
+        <div class="bull-name">H2R COMMANDER M6506</div>
+        <div class="bull-reg">REG# 4949392 &nbsp;|&nbsp; Born: 4/27/2024</div>
+        <div class="bull-details">
+          <div class="detail"><div class="label">Sire</div><div class="value">H2R COMMANDER J5444</div></div>
+          <div class="detail"><div class="label">Dam</div><div class="value">H2R-J110</div></div>
+          <div class="detail"><div class="label">Adj. Wean Wt</div><div class="value">459 lbs</div></div>
+          <div class="detail"><div class="label">205 Ratio</div><div class="value">96</div></div>
+        </div>
+        <div class="epd-section">
+          <div class="epd-title">RAAA EPDs</div>
+          <div class="epd-grid">
+            <div class="epd-item"><div class="epd-label">CED</div><div class="epd-value">9.1</div></div>
+            <div class="epd-item"><div class="epd-label">BW</div><div class="epd-value">-0.1</div></div>
+            <div class="epd-item"><div class="epd-label">WW</div><div class="epd-value">82.1</div></div>
+            <div class="epd-item"><div class="epd-label">YW</div><div class="epd-value">134.8</div></div>
+            <div class="epd-item"><div class="epd-label">Milk</div><div class="epd-value">25.5</div></div>
+            <div class="epd-item"><div class="epd-label">Marb</div><div class="epd-value">0.68</div></div>
+            <div class="epd-item"><div class="epd-label">REA</div><div class="epd-value">0.39</div></div>
+            <div class="epd-item"><div class="epd-label">FAT</div><div class="epd-value">0.01</div></div>
+          </div>          </div>
+                  <div class="epd-title" style="margin-top:8px">Leachman Indexes</div>
+          <div class="lc-grid">
+            <div class="lc-item"><div class="lc-label">LC $Profit</div><div class="lc-value">$16,870</div></div>
+            <div class="lc-item"><div class="lc-label">LC $Ranch</div><div class="lc-value">55.16</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="terms">
+    All bulls are registered Red Angus. BSE testing completed prior to delivery. Henderson Red Angus is a proud RA Brown Ranch cooperator. · $5,000 each — Private Treaty<br>
+    Deposits held by check or Venmo. All sales final. Buyer responsible for transportation.<br>
+    EPDs current as of November 2025 RAAA evaluation.
+  </div>
+  <div class="contact">
+    Henderson Red Angus · Seymour, Texas<br>
+    📞 817-360-4630 &nbsp;|&nbsp; ✉️ toby@hendersonredangus.com &nbsp;|&nbsp; 🌐 hendersonredangus.com
+  </div>
+</footer>
+
+</body>
+</html>
