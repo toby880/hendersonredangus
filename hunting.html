@@ -6,394 +6,383 @@
 <title>Henderson Ranch Hunts — Seymour, Texas</title>
 <meta name="description" content="Guided hog and dove hunting in Seymour, Texas. Day hunts, night thermal hunts, and dove opener weekends. Henderson Ranch Hunts.">
 <style>
-  :root {
-    --dark: #0f1a0f;
-    --green: #1a2e1a;
-    --gold: #c8a96e;
-    --orange: #c8521a;
-    --white: #ffffff;
-    --gray: #888;
-    --bg: #f5f0eb;
-    --border: #ddd;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1a1a1a; }
-
-  /* NAV */
-  nav { background: var(--dark); padding: 0 32px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-  .nav-logo { display: flex; align-items: center; gap: 12px; padding: 10px 0; text-decoration: none; }
-  .nav-logo img { height: 48px; width: 48px; object-fit: contain; }
-  .nav-links { display: flex; gap: 0; }
-  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; padding: 20px 16px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; transition: color 0.15s; border-bottom: 3px solid transparent; }
-  .nav-links a:hover { color: var(--gold); border-bottom-color: var(--gold); }
-  .nav-links a.cattle { background: #8B1A1A; color: white; padding: 20px 20px; }
-  .nav-links a.book { background: var(--orange); color: white; padding: 20px 20px; font-weight: 700; }
-  .nav-links a.book:hover { background: #a84215; border-bottom-color: transparent; }
-
-  /* HERO */
-  .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('hero_hunt.jpg') center/cover no-repeat; min-height: 520px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 24px; background-color: #0f1a0f; }
-  .hero-logo { margin-bottom: 24px; }
-  .hero-logo img { height: 220px; object-fit: contain; }
-  .hero h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: white; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; }
-  .hero p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
-  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .btn-primary { background: var(--orange); color: white; padding: 14px 28px; text-decoration: none; font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid var(--orange); }
-  .btn-outline { background: transparent; color: white; padding: 14px 28px; text-decoration: none; font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid rgba(255,255,255,0.6); }
-  .btn-outline:hover { background: white; color: #1a1a1a; }
-
-  /* HUNT TYPES */
-  .hunts { padding: 60px 24px; background: var(--white); }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; text-align: center; }
-  .section-title { font-size: 36px; font-weight: 800; text-align: center; margin-bottom: 12px; }
-  .section-divider { width: 60px; height: 3px; background: var(--gold); margin: 0 auto 48px; }
-  .hunt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-  .hunt-card { border: 2px solid var(--border); overflow: hidden; }
-  .hunt-card .hunt-header { background: var(--dark); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
-  .hunt-card .hunt-icon { font-size: 32px; }
-  .hunt-card .hunt-price { font-size: 24px; font-weight: 800; color: var(--gold); }
-  .hunt-card .hunt-price span { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.5); }
-  .hunt-card .hunt-body { padding: 24px; }
-  .hunt-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-  .hunt-card .hunt-type { font-size: 12px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-  .hunt-card p { font-size: 14px; color: #555; line-height: 1.7; margin-bottom: 12px; }
-  .hunt-card ul { list-style: none; }
-  .hunt-card ul li { font-size: 13px; color: #555; padding: 4px 0; padding-left: 20px; position: relative; }
-  .hunt-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
-
-  /* THERMAL SECTION */
-  .thermal { background: var(--dark); padding: 60px 24px; text-align: center; }
-  .thermal h2 { font-size: 36px; font-weight: 800; color: white; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 2px; }
-  .thermal p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 700px; margin: 0 auto 32px; line-height: 1.8; }
-  .thermal-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto 40px; }
-  .thermal-feature { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 20px; text-align: center; }
-  .thermal-feature .tf-icon { font-size: 32px; margin-bottom: 10px; }
-  .thermal-feature h4 { color: var(--gold); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .thermal-feature p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
-
-  /* DOVE */
-  .dove { background: var(--bg); padding: 60px 24px; }
-  .dove-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 900px; margin: 0 auto; }
-  .dove-text h2 { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
-  .dove-text p { font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 16px; }
-  .dove-image { background: #2a3a2a; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
-
-  /* ABOUT THE RANCH */
-  .ranch-info { background: var(--white); padding: 60px 24px; }
-  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; text-align: center; }
-  .info-card { padding: 24px; border: 1px solid var(--border); }
-  .info-card .icon { font-size: 36px; margin-bottom: 12px; }
-  .info-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-  .info-card p { font-size: 14px; color: #666; line-height: 1.6; }
-
-  /* BOOK */
-  .book { background: var(--green); padding: 60px 24px; text-align: center; }
-  .book h2 { font-size: 36px; font-weight: 800; color: white; margin-bottom: 16px; }
-  .book p { color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 32px; }
-  .book-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto; }
-  .book-option { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 28px; }
-  .book-option .bo-icon { font-size: 32px; margin-bottom: 12px; }
-  .book-option h3 { color: var(--gold); font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-  .book-option p { color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
-  .book-option a { display: inline-block; background: var(--orange); color: white; padding: 10px 20px; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-
-  /* FOOTER */
-  footer { background: #080f08; color: rgba(255,255,255,0.4); padding: 24px; text-align: center; font-size: 13px; }
-  footer a { color: var(--gold); text-decoration: none; }
-
-  @media(max-width: 768px) {
-    .nav-links { display: none; }
-    .dove-grid { grid-template-columns: 1fr; }
-  }
+:root {
+--dark: #0f1a0f;
+--green: #1a2e1a;
+--gold: #c8a96e;
+--orange: #c8521a;
+--white: #ffffff;
+--gray: #888;
+--bg: #f5f0eb;
+--border: #ddd;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1a1a1a; }
+/* NAV */
+nav { background: var(--dark); padding: 0 32px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+.nav-logo { display: flex; align-items: center; gap: 12px; padding: 10px 0; text-decoration: none; }
+.nav-logo img { height: 48px; width: 48px; object-fit: contain; }
+.nav-links { display: flex; gap: 0; }
+.nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; padding: 20px 16px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; transition: color 0.15s; border-bottom: 3px solid transparent; }
+.nav-links a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-links a.cattle { background: #8B1A1A; color: white; padding: 20px 20px; }
+.nav-links a.book { background: var(--orange); color: white; padding: 20px 20px; font-weight: 700; }
+.nav-links a.book:hover { background: #a84215; border-bottom-color: transparent; }
+/* HERO */
+.hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('hero_hunt.jpg') center/cover no-repeat; min-height: 520px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 24px; background-color: #0f1a0f; }
+.hero-logo { margin-bottom: 24px; }
+.hero-logo img { height: 220px; object-fit: contain; }
+.hero h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: white; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; }
+.hero p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-primary { background: var(--orange); color: white; padding: 14px 28px; text-decoration: none; font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid var(--orange); }
+.btn-outline { background: transparent; color: white; padding: 14px 28px; text-decoration: none; font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid rgba(255,255,255,0.6); }
+.btn-outline:hover { background: white; color: #1a1a1a; }
+/* HUNT TYPES */
+.hunts { padding: 60px 24px; background: var(--white); }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; text-align: center; }
+.section-title { font-size: 36px; font-weight: 800; text-align: center; margin-bottom: 12px; }
+.section-divider { width: 60px; height: 3px; background: var(--gold); margin: 0 auto 48px; }
+.hunt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.hunt-card { border: 2px solid var(--border); overflow: hidden; }
+.hunt-card .hunt-header { background: var(--dark); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+.hunt-card .hunt-icon { font-size: 32px; }
+.hunt-card .hunt-price { font-size: 24px; font-weight: 800; color: var(--gold); }
+.hunt-card .hunt-price span { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.5); }
+.hunt-card .hunt-body { padding: 24px; }
+.hunt-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.hunt-card .hunt-type { font-size: 12px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+.hunt-card p { font-size: 14px; color: #555; line-height: 1.7; margin-bottom: 12px; }
+.hunt-card ul { list-style: none; }
+.hunt-card ul li { font-size: 13px; color: #555; padding: 4px 0; padding-left: 20px; position: relative; }
+.hunt-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+/* THERMAL SECTION */
+.thermal { background: var(--dark); padding: 60px 24px; text-align: center; }
+.thermal h2 { font-size: 36px; font-weight: 800; color: white; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 2px; }
+.thermal p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 700px; margin: 0 auto 32px; line-height: 1.8; }
+.thermal-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto 40px; }
+.thermal-feature { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 20px; text-align: center; }
+.thermal-feature .tf-icon { font-size: 32px; margin-bottom: 10px; }
+.thermal-feature h4 { color: var(--gold); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.thermal-feature p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+/* DOVE */
+.dove { background: var(--bg); padding: 60px 24px; }
+.dove-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 900px; margin: 0 auto; }
+.dove-text h2 { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+.dove-text p { font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 16px; }
+.dove-image { background: #2a3a2a; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+/* ABOUT THE RANCH */
+.ranch-info { background: var(--white); padding: 60px 24px; }
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; text-align: center; }
+.info-card { padding: 24px; border: 1px solid var(--border); }
+.info-card .icon { font-size: 36px; margin-bottom: 12px; }
+.info-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.info-card p { font-size: 14px; color: #666; line-height: 1.6; }
+/* BOOK */
+.book { background: var(--green); padding: 60px 24px; text-align: center; }
+.book h2 { font-size: 36px; font-weight: 800; color: white; margin-bottom: 16px; }
+.book p { color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 32px; }
+.book-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto; }
+.book-option { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 28px; }
+.book-option .bo-icon { font-size: 32px; margin-bottom: 12px; }
+.book-option h3 { color: var(--gold); font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.book-option p { color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+.book-option a { display: inline-block; background: var(--orange); color: white; padding: 10px 20px; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+/* FOOTER */
+footer { background: #080f08; color: rgba(255,255,255,0.4); padding: 24px; text-align: center; font-size: 13px; }
+footer a { color: var(--gold); text-decoration: none; }
+@media(max-width: 768px) {
+.nav-links { display: none; }
+.dove-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">
-    <img src="hunts_logo.png" alt="Henderson Ranch Hunts" style="height:52px;width:auto">
-  </a>
-  <div class="nav-links">
-    <a href="#hunts">Day Hunts</a>
-    <a href="#thermal">Night Hunts</a>
-    <a href="#dove">Dove</a>
-    <a href="#book">Book Now</a>
-    <a href="index.html" class="cattle">Henderson Red Angus</a>
-    <a href="#book" class="book">Book a Hunt</a>
-  </div>
+<a href="/" class="nav-logo">
+<img src="hunts_logo.png" alt="Henderson Ranch Hunts" style="height:90px;width:auto">
+</a>
+<div class="nav-links">
+<a href="#hunts">Day Hunts</a>
+<a href="#thermal">Night Hunts</a>
+<a href="#dove">Dove</a>
+<a href="#book">Book Now</a>
+<a href="index.html" class="cattle">Henderson Red Angus</a>
+<a href="#book" class="book">Book a Hunt</a>
+</div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div>
-    <div class="hero-logo">
-      <img src="hunts_logo.png" alt="Henderson Ranch Hunts" style="height:220px;width:auto">
-    </div>
-    <p>Hog hunting and dove hunting on a working Red Angus ranch in North Texas. Day hunts, semi-guided, and nighttime thermal hunts available.</p>
-    <div class="hero-btns">
-      <a href="#book" class="btn-primary">Book a Hunt</a>
-      <a href="#hunts" class="btn-outline">See Hunt Options</a>
-    </div>
-  </div>
+<div>
+<div class="hero-logo">
+<img src="hunts_logo.png" alt="Henderson Ranch Hunts" style="height:340px;width:auto">
+</div>
+<p>Hog hunting and dove hunting on a working Red Angus ranch in North Texas. Day hunts, semi-guided, and nighttime thermal hunts available.</p>
+<div class="hero-btns">
+<a href="#book" class="btn-primary">Book a Hunt</a>
+<a href="#hunts" class="btn-outline">See Hunt Options</a>
+</div>
+</div>
 </div>
 
 <!-- HUNT TYPES -->
 <section class="hunts" id="hunts">
-  <div class="container">
-    <div class="section-label">What We Offer</div>
-    <h2 class="section-title">Hunt Options</h2>
-    <div class="section-divider"></div>
-    <div class="hunt-grid">
-
-      <!-- Day Hog Hunt -->
-      <div class="hunt-card">
-        <div class="hunt-header">
-          <div class="hunt-icon">🐗</div>
-          <div class="hunt-price">$250 <span>/ person / day</span></div>
-        </div>
-        <div class="hunt-body">
-          <div class="hunt-type">Semi-Guided</div>
-          <h3>Day Hog Hunt</h3>
-          <p>Daylight to dark hog hunting on our working ranch in Seymour, Texas. We drop you off at your stand and pick you up — you do the hunting.</p>
-          <ul>
-            <li>Daylight to dark access</li>
-            <li>Stand provided</li>
-            <li>Drop off and pick up service</li>
-            <li>No hog limit</li>
-            <li>$250 per person per day</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Night Thermal Hunt -->
-      <div class="hunt-card">
-        <div class="hunt-header">
-          <div class="hunt-icon">🌙</div>
-          <div class="hunt-price">Contact <span>for pricing</span></div>
-        </div>
-        <div class="hunt-body">
-          <div class="hunt-type">Fully Guided · Limited Groups</div>
-          <h3>Night Thermal Hunt</h3>
-          <p>Experience the thrill of nighttime hog hunting with thermal imaging equipment on a working ranch. Limited group sizes for the best experience.</p>
-          <ul>
-            <li>Fully guided nighttime hunt</li>
-            <li>Thermal imaging equipment</li>
-            <li>Limited group sizes</li>
-            <li>High success rates</li>
-            <li>Contact us for availability and pricing</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Dove -->
-      <div class="hunt-card">
-        <div class="hunt-header">
-          <div class="hunt-icon">🕊️</div>
-          <div class="hunt-price">Contact <span>for pricing</span></div>
-        </div>
-        <div class="hunt-body">
-          <div class="hunt-type">Seasonal</div>
-          <h3>Dove Hunting</h3>
-          <p>Opening weekend dove hunting in North Texas. Seymour area is known for outstanding dove hunting — don't miss the opener.</p>
-          <ul>
-            <li>Opening weekend availability</li>
-            <li>Prime North Texas dove country</li>
-            <li>Limited spots available</li>
-            <li>Contact us early to reserve your spot</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="container">
+<div class="section-label">What We Offer</div>
+<h2 class="section-title">Hunt Options</h2>
+<div class="section-divider"></div>
+<div class="hunt-grid">
+<!-- Day Hog Hunt -->
+<div class="hunt-card">
+<div class="hunt-header">
+<div class="hunt-icon">🐗</div>
+<div class="hunt-price">$250 <span>/ person / day</span></div>
+</div>
+<div class="hunt-body">
+<div class="hunt-type">Semi-Guided</div>
+<h3>Day Hog Hunt</h3>
+<p>Daylight to dark hog hunting on our working ranch in Seymour, Texas. We drop you off at your stand and pick you up — you do the hunting.</p>
+<ul>
+<li>Daylight to dark access</li>
+<li>Stand provided</li>
+<li>Drop off and pick up service</li>
+<li>No hog limit</li>
+<li>$250 per person per day</li>
+</ul>
+</div>
+</div>
+<!-- Night Thermal Hunt -->
+<div class="hunt-card">
+<div class="hunt-header">
+<div class="hunt-icon">🌙</div>
+<div class="hunt-price">Contact <span>for pricing</span></div>
+</div>
+<div class="hunt-body">
+<div class="hunt-type">Fully Guided · Limited Groups</div>
+<h3>Night Thermal Hunt</h3>
+<p>Experience the thrill of nighttime hog hunting with thermal imaging equipment on a working ranch. Limited group sizes for the best experience.</p>
+<ul>
+<li>Fully guided nighttime hunt</li>
+<li>Thermal imaging equipment</li>
+<li>Limited group sizes</li>
+<li>High success rates</li>
+<li>Contact us for availability and pricing</li>
+</ul>
+</div>
+</div>
+<!-- Dove -->
+<div class="hunt-card">
+<div class="hunt-header">
+<div class="hunt-icon">🕊️</div>
+<div class="hunt-price">Contact <span>for pricing</span></div>
+</div>
+<div class="hunt-body">
+<div class="hunt-type">Seasonal</div>
+<h3>Dove Hunting</h3>
+<p>Opening weekend dove hunting in North Texas. Seymour area is known for outstanding dove hunting — don't miss the opener.</p>
+<ul>
+<li>Opening weekend availability</li>
+<li>Prime North Texas dove country</li>
+<li>Limited spots available</li>
+<li>Contact us early to reserve your spot</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- VIDEO -->
 <section style="background:#0f1a0f;padding:60px 24px;text-align:center">
-  <div class="container">
-    <div class="section-label" style="color:var(--gold)">See It For Yourself</div>
-    <h2 style="font-size:32px;font-weight:800;color:white;margin-bottom:12px">Hunt Footage</h2>
-    <div style="width:60px;height:3px;background:var(--gold);margin:0 auto 32px"></div>
-    <div style="max-width:800px;margin:0 auto;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border:3px solid rgba(255,255,255,0.1)">
-      <iframe src="https://www.youtube.com/embed/5ipD8zS3Ot8" 
-        style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
-        allowfullscreen
-        title="Henderson Ranch Hunts - Hog Hunting Seymour Texas">
-      </iframe>
-    </div>
-    <p style="color:rgba(255,255,255,0.5);font-size:13px;margin-top:16px">Real hunts on Henderson Ranch · Seymour, Texas</p>
-  </div>
+<div class="container">
+<div class="section-label" style="color:var(--gold)">See It For Yourself</div>
+<h2 style="font-size:32px;font-weight:800;color:white;margin-bottom:12px">Hunt Footage</h2>
+<div style="width:60px;height:3px;background:var(--gold);margin:0 auto 32px"></div>
+<div style="max-width:800px;margin:0 auto;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border:3px solid rgba(255,255,255,0.1)">
+<iframe src="https://www.youtube.com/embed/5ipD8zS3Ot8"
+style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
+allowfullscreen
+title="Henderson Ranch Hunts - Hog Hunting Seymour Texas">
+</iframe>
+</div>
+<p style="color:rgba(255,255,255,0.5);font-size:13px;margin-top:16px">Real hunts on Henderson Ranch · Seymour, Texas</p>
+</div>
 </section>
 
 <!-- THERMAL SECTION -->
 <section class="thermal" id="thermal">
-  <div class="container">
-    <div class="section-label" style="color:var(--gold)">After Dark</div>
-    <h2>Night Thermal Hog Hunts</h2>
-    <p>There's nothing quite like hunting hogs at night with thermal imaging. You see everything they don't. Our guided nighttime hunts are one of the most exciting hunting experiences in North Texas — limited groups only for maximum action and safety.</p>
-    <div class="thermal-features">
-      <div class="thermal-feature">
-        <div class="tf-icon">🎯</div>
-        <h4>Thermal Imaging</h4>
-        <p>See hogs in total darkness with professional thermal equipment</p>
-      </div>
-      <div class="thermal-feature">
-        <div class="tf-icon">👥</div>
-        <h4>Small Groups</h4>
-        <p>Limited group sizes for the best experience and highest success</p>
-      </div>
-      <div class="thermal-feature">
-        <div class="tf-icon">🌙</div>
-        <h4>Fully Guided</h4>
-        <p>Our guides know the land and the hogs — you just hunt</p>
-      </div>
-      <div class="thermal-feature">
-        <div class="tf-icon">📍</div>
-        <h4>Seymour, Texas</h4>
-        <p>Working ranch with high hog population year round</p>
-      </div>
-    </div>
-    <a href="#book" class="btn-primary">Book a Night Hunt</a>
-  </div>
+<div class="container">
+<div class="section-label" style="color:var(--gold)">After Dark</div>
+<h2>Night Thermal Hog Hunts</h2>
+<p>There's nothing quite like hunting hogs at night with thermal imaging. You see everything they don't. Our guided nighttime hunts are one of the most exciting hunting experiences in North Texas — limited groups only for maximum action and safety.</p>
+<div class="thermal-features">
+<div class="thermal-feature">
+<div class="tf-icon">🎯</div>
+<h4>Thermal Imaging</h4>
+<p>See hogs in total darkness with professional thermal equipment</p>
+</div>
+<div class="thermal-feature">
+<div class="tf-icon">👥</div>
+<h4>Small Groups</h4>
+<p>Limited group sizes for the best experience and highest success</p>
+</div>
+<div class="thermal-feature">
+<div class="tf-icon">🌙</div>
+<h4>Fully Guided</h4>
+<p>Our guides know the land and the hogs — you just hunt</p>
+</div>
+<div class="thermal-feature">
+<div class="tf-icon">📍</div>
+<h4>Seymour, Texas</h4>
+<p>Working ranch with high hog population year round</p>
+</div>
+</div>
+<a href="#book" class="btn-primary">Book a Night Hunt</a>
+</div>
 </section>
 
 <!-- DOVE -->
 <section class="dove" id="dove">
-  <div class="container">
-    <div class="dove-grid">
-      <div class="dove-text">
-        <div class="section-label" style="text-align:left">Seasonal</div>
-        <h2>Dove Opener Weekend</h2>
-        <div style="width:60px;height:3px;background:var(--gold);margin:12px 0 20px"></div>
-        <p>North Texas is some of the best dove country in the state — and opening weekend on Henderson Ranch is something special. We offer dove hunting for opening weekend with limited spots available.</p>
-        <p>Contact us early to get on the list. Spots fill up fast.</p>
-        <a href="#book" class="btn-primary" style="display:inline-block;margin-top:8px">Reserve Your Spot</a>
-      </div>
-      <div class="dove-image">🕊️</div>
-    </div>
-  </div>
+<div class="container">
+<div class="dove-grid">
+<div class="dove-text">
+<div class="section-label" style="text-align:left">Seasonal</div>
+<h2>Dove Opener Weekend</h2>
+<div style="width:60px;height:3px;background:var(--gold);margin:12px 0 20px"></div>
+<p>North Texas is some of the best dove country in the state — and opening weekend on Henderson Ranch is something special. We offer dove hunting for opening weekend with limited spots available.</p>
+<p>Contact us early to get on the list. Spots fill up fast.</p>
+<a href="#book" class="btn-primary" style="display:inline-block;margin-top:8px">Reserve Your Spot</a>
+</div>
+<div class="dove-image">🕊️</div>
+</div>
+</div>
 </section>
 
 <!-- RANCH INFO -->
 <section class="ranch-info">
-  <div class="container">
-    <div class="section-label">The Ranch</div>
-    <h2 class="section-title" style="margin-bottom:12px">Why Hunt Henderson Ranch</h2>
-    <div class="section-divider"></div>
-    <div class="info-grid" style="margin-top:48px">
-      <div class="info-card">
-        <div class="icon">🌾</div>
-        <h3>Working Ranch</h3>
-        <p>A real working Red Angus cattle ranch — hogs have plenty of reason to be here year round</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">📍</div>
-        <h3>Seymour, Texas</h3>
-        <p>Prime North Texas hunting country — great hog and dove populations</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">🤝</div>
-        <h3>Family Operation</h3>
-        <p>Hunt with the family that owns and works this land every day</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">🏕️</div>
-        <h3>Year Round Hogs</h3>
-        <p>Hog hunting available year round — no season restrictions</p>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="section-label">The Ranch</div>
+<h2 class="section-title" style="margin-bottom:12px">Why Hunt Henderson Ranch</h2>
+<div class="section-divider"></div>
+<div class="info-grid" style="margin-top:48px">
+<div class="info-card">
+<div class="icon">🌾</div>
+<h3>Working Ranch</h3>
+<p>A real working Red Angus cattle ranch — hogs have plenty of reason to be here year round</p>
+</div>
+<div class="info-card">
+<div class="icon">📍</div>
+<h3>Seymour, Texas</h3>
+<p>Prime North Texas hunting country — great hog and dove populations</p>
+</div>
+<div class="info-card">
+<div class="icon">🤝</div>
+<h3>Family Operation</h3>
+<p>Hunt with the family that owns and works this land every day</p>
+</div>
+<div class="info-card">
+<div class="icon">🏕️</div>
+<h3>Year Round Hogs</h3>
+<p>Hog hunting available year round — no season restrictions</p>
+</div>
+</div>
+</div>
 </section>
 
 <!-- PHOTO GALLERY -->
 <section style="background:#1a1a1a;padding:60px 24px">
-  <div class="container">
-    <div class="section-label" style="color:var(--gold);text-align:center">Hunt Gallery</div>
-    <h2 style="font-size:36px;font-weight:800;color:white;text-align:center;margin-bottom:12px;text-transform:uppercase;letter-spacing:2px">Happy Hunters</h2>
-    <div style="width:60px;height:3px;background:var(--gold);margin:0 auto 32px"></div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1000px;margin:0 auto">
-      <div style="overflow:hidden">
-        <img src="hunt_photo1.jpg" alt="Night hog hunt - Henderson Ranch" style="width:100%;height:280px;object-fit:cover;display:block">
-      </div>
-      <div style="overflow:hidden">
-        <img src="hunt_photo2.jpg" alt="Day hog hunt - Henderson Ranch" style="width:100%;height:280px;object-fit:cover;display:block">
-      </div>
-      <div style="overflow:hidden">
-        <img src="hunt_photo3.jpg" alt="Group night hunt - Henderson Ranch" style="width:100%;height:280px;object-fit:cover;display:block">
-      </div>
-    </div>
-    <p style="color:rgba(255,255,255,0.5);font-size:13px;text-align:center;margin-top:16px">Real hunters, real results · Henderson Ranch · Seymour, Texas</p>
-  </div>
+<div class="container">
+<div class="section-label" style="color:var(--gold);text-align:center">Hunt Gallery</div>
+<h2 style="font-size:36px;font-weight:800;color:white;text-align:center;margin-bottom:12px;text-transform:uppercase;letter-spacing:2px">Happy Hunters</h2>
+<div style="width:60px;height:3px;background:var(--gold);margin:0 auto 32px"></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1000px;margin:0 auto">
+<div style="overflow:hidden">
+<img src="hunt_photo1.jpg" alt="Night hog hunt - Henderson Ranch" style="width:100%;height:280px;object-fit:cover;display:block">
+</div>
+<div style="overflow:hidden">
+<img src="hunt_photo2.jpg" alt="Day hog hunt - Henderson Ranch" style="width:100%;height:280px;object-fit:cover;display:block">
+</div>
+<div style="overflow:hidden">
+<img src="hunt_photo3.jpg" alt="Group night hunt - Henderson Ranch" style="width:100%;height:280px;object-fit:cover;display:block">
+</div>
+<div style="overflow:hidden">
+<img src="hunt_photo4.jpg" alt="Henderson Ranch Hunts" style="width:100%;height:280px;object-fit:cover;display:block">
+</div>
+</div>
+<p style="color:rgba(255,255,255,0.5);font-size:13px;text-align:center;margin-top:16px">Real hunters, real results · Henderson Ranch · Seymour, Texas</p>
+</div>
 </section>
 
 <!-- VIDEO SECTION -->
 <section style="background:#0f1a0f;padding:60px 24px;text-align:center">
-  <div class="container">
-    <div class="section-label" style="color:var(--gold)">See It For Yourself</div>
-    <h2 style="font-size:36px;font-weight:800;color:white;margin-bottom:12px;text-transform:uppercase;letter-spacing:2px">Watch Real Hunts</h2>
-    <div style="width:60px;height:3px;background:var(--gold);margin:0 auto 32px"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1000px;margin:0 auto">
-      <div style="border:3px solid rgba(200,169,110,0.3)">
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden">
-          <iframe src="https://www.youtube.com/embed/5ipD8zS3Ot8"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"
-            allowfullscreen title="Henderson Ranch Hunts — Hog Hunt Video">
-          </iframe>
-        </div>
-      </div>
-      <div style="border:3px solid rgba(200,169,110,0.3)">
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden">
-          <iframe src="https://www.youtube.com/embed/drzjQ3HTofw"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"
-            allowfullscreen title="Henderson Ranch Hunts — Hog Hunt Video 2">
-          </iframe>
-        </div>
-      </div>
-      <div style="border:3px solid rgba(200,169,110,0.3)">
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden">
-          <iframe src="https://www.youtube.com/embed/fDTb3RudlWg"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"
-            allowfullscreen title="Henderson Ranch Hunts — Hog Hunt Video 3">
-          </iframe>
-        </div>
-      </div>
-    </div>
-    <p style="color:rgba(255,255,255,0.6);font-size:14px;margin-top:16px">Real hunt footage from Henderson Ranch · Seymour, Texas</p>
-  </div>
+<div class="container">
+<div class="section-label" style="color:var(--gold)">See It For Yourself</div>
+<h2 style="font-size:36px;font-weight:800;color:white;margin-bottom:12px;text-transform:uppercase;letter-spacing:2px">Watch Real Hunts</h2>
+<div style="width:60px;height:3px;background:var(--gold);margin:0 auto 32px"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1000px;margin:0 auto">
+<div style="border:3px solid rgba(200,169,110,0.3)">
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden">
+<iframe src="https://www.youtube.com/embed/5ipD8zS3Ot8"
+style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"
+allowfullscreen title="Henderson Ranch Hunts — Hog Hunt Video">
+</iframe>
+</div>
+</div>
+<div style="border:3px solid rgba(200,169,110,0.3)">
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden">
+<iframe src="https://www.youtube.com/embed/drzjQ3HTofw"
+style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"
+allowfullscreen title="Henderson Ranch Hunts — Hog Hunt Video 2">
+</iframe>
+</div>
+</div>
+<div style="border:3px solid rgba(200,169,110,0.3)">
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden">
+<iframe src="https://www.youtube.com/embed/fDTb3RudlWg"
+style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"
+allowfullscreen title="Henderson Ranch Hunts — Hog Hunt Video 3">
+</iframe>
+</div>
+</div>
+</div>
+<p style="color:rgba(255,255,255,0.6);font-size:14px;margin-top:16px">Real hunt footage from Henderson Ranch · Seymour, Texas</p>
+</div>
 </section>
 
 <!-- BOOK -->
 <section class="book" id="book">
-  <div class="container">
-    <h2>Ready to Book?</h2>
-    <p>Contact us to check availability and reserve your hunt. We'll get you set up with everything you need.</p>
-    <div class="book-options">
-      <div class="book-option">
-        <div class="bo-icon">📱</div>
-        <h3>Call or Text</h3>
-        <p>The fastest way to book. Call or text Toby directly to check availability and get details.</p>
-        <a href="tel:8173604630">817-360-4630</a>
-      </div>
-      <div class="book-option">
-        <div class="bo-icon">✉️</div>
-        <h3>Email Us</h3>
-        <p>Send us your preferred dates, group size, and hunt type and we'll get back to you quickly.</p>
-        <a href="mailto:toby@hendersonredangus.com">Send Email</a>
-      </div>
-      <div class="book-option">
-        <div class="bo-icon">👍</div>
-        <h3>Facebook</h3>
-        <p>Follow Henderson Ranch Hunts on Facebook for availability updates and hunt photos.</p>
-        <a href="https://www.facebook.com/profile.php?id=61588119836496" target="_blank">Find Us on Facebook</a>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<h2>Ready to Book?</h2>
+<p>Contact us to check availability and reserve your hunt. We'll get you set up with everything you need.</p>
+<div class="book-options">
+<div class="book-option">
+<div class="bo-icon">📱</div>
+<h3>Call or Text</h3>
+<p>The fastest way to book. Call or text Toby directly to check availability and get details.</p>
+<a href="tel:8173604630">817-360-4630</a>
+</div>
+<div class="book-option">
+<div class="bo-icon">✉️</div>
+<h3>Email Us</h3>
+<p>Send us your preferred dates, group size, and hunt type and we'll get back to you quickly.</p>
+<a href="mailto:toby@hendersonredangus.com">Send Email</a>
+</div>
+<div class="book-option">
+<div class="bo-icon">👍</div>
+<h3>Facebook</h3>
+<p>Follow Henderson Ranch Hunts on Facebook for availability updates and hunt photos.</p>
+<a href="https://www.facebook.com/profile.php?id=61588119836496" target="_blank">Find Us on Facebook</a>
+</div>
+</div>
+</div>
 </section>
 
 <footer>
-  © 2026 Henderson Ranch Hunts · Seymour, Texas · 817-360-4630<br>
-  A division of <a href="index.html">Henderson Red Angus</a>
+© 2026 Henderson Ranch Hunts · Seymour, Texas · 817-360-4630<br>
+A division of <a href="index.html">Henderson Red Angus</a>
 </footer>
 
 </body>
